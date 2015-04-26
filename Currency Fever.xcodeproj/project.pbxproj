@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE3105111AED536B00C0DFAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3105101AED536B00C0DFAB /* AppDelegate.swift */; };
-		BE3105131AED536B00C0DFAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3105121AED536B00C0DFAB /* ViewController.swift */; };
+		BE3105131AED536B00C0DFAB /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3105121AED536B00C0DFAB /* CurrencyViewController.swift */; };
 		BE3105161AED536B00C0DFAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE3105141AED536B00C0DFAB /* Main.storyboard */; };
 		BE3105181AED536B00C0DFAB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE3105171AED536B00C0DFAB /* Images.xcassets */; };
 		BE31051B1AED536B00C0DFAB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE3105191AED536B00C0DFAB /* LaunchScreen.xib */; };
@@ -29,7 +29,7 @@
 		BE31050B1AED536B00C0DFAB /* Currency Fever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency Fever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE31050F1AED536B00C0DFAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE3105101AED536B00C0DFAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE3105121AED536B00C0DFAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE3105121AED536B00C0DFAB /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		BE3105151AED536B00C0DFAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE3105171AED536B00C0DFAB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BE31051A1AED536B00C0DFAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -77,11 +77,8 @@
 		BE31050D1AED536B00C0DFAB /* Currency Fever */ = {
 			isa = PBXGroup;
 			children = (
-				BE3105101AED536B00C0DFAB /* AppDelegate.swift */,
-				BE3105121AED536B00C0DFAB /* ViewController.swift */,
+				BE3105121AED536B00C0DFAB /* CurrencyViewController.swift */,
 				BE3105141AED536B00C0DFAB /* Main.storyboard */,
-				BE3105171AED536B00C0DFAB /* Images.xcassets */,
-				BE3105191AED536B00C0DFAB /* LaunchScreen.xib */,
 				BE31050E1AED536B00C0DFAB /* Supporting Files */,
 			);
 			path = "Currency Fever";
@@ -90,6 +87,9 @@
 		BE31050E1AED536B00C0DFAB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE3105101AED536B00C0DFAB /* AppDelegate.swift */,
+				BE3105191AED536B00C0DFAB /* LaunchScreen.xib */,
+				BE3105171AED536B00C0DFAB /* Images.xcassets */,
 				BE31050F1AED536B00C0DFAB /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE3105131AED536B00C0DFAB /* ViewController.swift in Sources */,
+				BE3105131AED536B00C0DFAB /* CurrencyViewController.swift in Sources */,
 				BE3105111AED536B00C0DFAB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
