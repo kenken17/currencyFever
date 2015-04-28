@@ -13,6 +13,9 @@
 		BE3105181AED536B00C0DFAB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE3105171AED536B00C0DFAB /* Images.xcassets */; };
 		BE31051B1AED536B00C0DFAB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE3105191AED536B00C0DFAB /* LaunchScreen.xib */; };
 		BE3105271AED536B00C0DFAB /* Currency_FeverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3105261AED536B00C0DFAB /* Currency_FeverTests.swift */; };
+		BED836401AEFE43F0065AA37 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED8363F1AEFE43F0065AA37 /* CurrencyTableViewCell.swift */; };
+		BED836491AEFE5260065AA37 /* Singapore.png in Resources */ = {isa = PBXBuildFile; fileRef = BED836481AEFE5260065AA37 /* Singapore.png */; };
+		BED8364B1AEFE7B00065AA37 /* ModelCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED8364A1AEFE7B00065AA37 /* ModelCurrency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		BE3105201AED536B00C0DFAB /* Currency FeverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Currency FeverTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE3105251AED536B00C0DFAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE3105261AED536B00C0DFAB /* Currency_FeverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_FeverTests.swift; sourceTree = "<group>"; };
+		BED8363F1AEFE43F0065AA37 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
+		BED836481AEFE5260065AA37 /* Singapore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Singapore.png; path = flags/Singapore.png; sourceTree = "<group>"; };
+		BED8364A1AEFE7B00065AA37 /* ModelCurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCurrency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,8 @@
 			children = (
 				BE3105121AED536B00C0DFAB /* CurrencyViewController.swift */,
 				BE3105141AED536B00C0DFAB /* Main.storyboard */,
+				BED8363F1AEFE43F0065AA37 /* CurrencyTableViewCell.swift */,
+				BED8364A1AEFE7B00065AA37 /* ModelCurrency.swift */,
 				BE31050E1AED536B00C0DFAB /* Supporting Files */,
 			);
 			path = "Currency Fever";
@@ -87,6 +95,7 @@
 		BE31050E1AED536B00C0DFAB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BED836431AEFE4980065AA37 /* flags */,
 				BE3105101AED536B00C0DFAB /* AppDelegate.swift */,
 				BE3105191AED536B00C0DFAB /* LaunchScreen.xib */,
 				BE3105171AED536B00C0DFAB /* Images.xcassets */,
@@ -110,6 +119,14 @@
 				BE3105251AED536B00C0DFAB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BED836431AEFE4980065AA37 /* flags */ = {
+			isa = PBXGroup;
+			children = (
+				BED836481AEFE5260065AA37 /* Singapore.png */,
+			);
+			name = flags;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BED836491AEFE5260065AA37 /* Singapore.png in Resources */,
 				BE3105161AED536B00C0DFAB /* Main.storyboard in Resources */,
 				BE31051B1AED536B00C0DFAB /* LaunchScreen.xib in Resources */,
 				BE3105181AED536B00C0DFAB /* Images.xcassets in Resources */,
@@ -213,6 +231,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE3105131AED536B00C0DFAB /* CurrencyViewController.swift in Sources */,
+				BED836401AEFE43F0065AA37 /* CurrencyTableViewCell.swift in Sources */,
+				BED8364B1AEFE7B00065AA37 /* ModelCurrency.swift in Sources */,
 				BE3105111AED536B00C0DFAB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +429,7 @@
 				BE31052C1AED536B00C0DFAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE31052D1AED536B00C0DFAB /* Build configuration list for PBXNativeTarget "Currency FeverTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +438,7 @@
 				BE31052F1AED536B00C0DFAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
