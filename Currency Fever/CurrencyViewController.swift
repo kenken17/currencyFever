@@ -10,12 +10,18 @@ import UIKit
 
 class CurrencyViewController: UIViewController {
 
-    var currencies: [Currency]()
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // Do any additional setup after loading the view, typically from a nib.
-//    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        var currencies = [Currency]()
+        
+        var c = Currency("SGD")
+        
+        c.getRate("jr-38e855266eb396bc3bb2e62bc33a548c")
+    }
 
 //    override func didReceiveMemoryWarning() {
 //        super.didReceiveMemoryWarning()
