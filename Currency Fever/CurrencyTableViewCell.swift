@@ -10,6 +10,10 @@ import UIKit
 
 class CurrencyTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var UILabelCode: UILabel!
+    @IBOutlet weak var UILabelName: UILabel!
+    @IBOutlet weak var UILabelValue: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +24,5 @@ class CurrencyTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="387" id="V1a-2m-33t"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="currencyCell" rowHeight="76" id="jsf-2K-6L3" customClass="CurrencyTableViewCell" customModule="Currency_Fever" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="currencyTableViewCell" rowHeight="76" id="jsf-2K-6L3" customClass="CurrencyTableViewCell" customModule="Currency_Fever" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jsf-2K-6L3" id="Ooj-qP-mVK">
@@ -33,7 +33,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Singapore Dollar" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2h-ey-NH5">
                                                     <rect key="frame" x="76" y="51" width="516" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QIh-Sw-d4t">
@@ -69,7 +69,7 @@
                                                         <constraint firstAttribute="width" constant="406" id="hpl-3S-L0i"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -114,8 +114,14 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="UILabelCode" destination="UWg-sv-wXm" id="SkE-Z0-AyA"/>
+                                            <outlet property="UILabelName" destination="j2h-ey-NH5" id="3D6-7h-f4e"/>
+                                            <outlet property="UILabelValue" destination="ztN-2r-7N9" id="2Sl-RB-1dW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="V1a-2m-33t"/>
@@ -141,6 +147,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="CurrencyTableView" destination="HQc-6v-SK7" id="X4M-yL-Zot"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
