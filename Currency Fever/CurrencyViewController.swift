@@ -8,15 +8,16 @@
 
 import UIKit
 
+
 class CurrencyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: Variables
     @IBOutlet weak var CurrencyTableView: UITableView!
     
     var currencyTableViewCellIdentifier = "currencyTableViewCell"
-    var currencies = [Currency]()
+    var currencies: Dictionary<String, Currency> = [:]
     var myCurrencies = ["SGD", "MYR"] // list of users currencies
-    var currenValue: Float = 0
+    var currenValue: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +29,10 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // Pull all the currencies
         for c in myCurrencies {
-            let curr = Currency(c)
-            
-            // TODO: Setup the currencies
-
-            currencies.append(curr);
+            currencies[c] = Currency(c);
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateRates", name: "newRates", object: nil)
     }
     
     // MARK: UITableViewDataSource
@@ -42,7 +41,6 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println(myCurrencies.count)
         return myCurrencies.count
     }
     
@@ -50,15 +48,31 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let cell = tableView.dequeueReusableCellWithIdentifier(self.currencyTableViewCellIdentifier, forIndexPath: indexPath) as! CurrencyTableViewCell
         
-        let currency = currencies[indexPath.row]
-        let code = currency.currency.currencyStructCode
-        let rates = currency.currency.currencyStructRate
+        let currency = myCurrencies[indexPath.row]
+        let myCurrency = currencies[currency]
+        
+        let currencyName = myCurrency!.currencyName
+        let code = myCurrency!.code
+        let rates = myCurrency!.rates
+        let value = rates[code]
     
-        cell.UILabelName!.text = currency.currency.currencyStructCurrency
-        cell.UILabelCode!.text = currency.currency.currencyStructCode
-        cell.UILabelValue!.text = rates[code]
+        // setup the properties
+        if currencyName != "unknown" {
+            cell.UIImageViewFlag!.image = UIImage(named: currencyName)
+        }
+
+        cell.UILabelName!.text = currencyName
+        cell.UILabelCode!.text = code
+        cell.UILabelValue!.text = String(format:"%.2f", value ?? 0)   // round to 2 decimal
 
         return cell
+    }
+    
+    func updateRates() {
+        println(currencies["SGD"])
+        
+        
+        CurrencyTableView.reloadData()
     }
 
 //    override func didReceiveMemoryWarning() {

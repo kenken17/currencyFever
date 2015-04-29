@@ -14,7 +14,6 @@
 		BE31051B1AED536B00C0DFAB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE3105191AED536B00C0DFAB /* LaunchScreen.xib */; };
 		BE3105271AED536B00C0DFAB /* Currency_FeverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3105261AED536B00C0DFAB /* Currency_FeverTests.swift */; };
 		BED836401AEFE43F0065AA37 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED8363F1AEFE43F0065AA37 /* CurrencyTableViewCell.swift */; };
-		BED836491AEFE5260065AA37 /* Singapore.png in Resources */ = {isa = PBXBuildFile; fileRef = BED836481AEFE5260065AA37 /* Singapore.png */; };
 		BED8364B1AEFE7B00065AA37 /* ModelCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED8364A1AEFE7B00065AA37 /* ModelCurrency.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +39,6 @@
 		BE3105251AED536B00C0DFAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE3105261AED536B00C0DFAB /* Currency_FeverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_FeverTests.swift; sourceTree = "<group>"; };
 		BED8363F1AEFE43F0065AA37 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
-		BED836481AEFE5260065AA37 /* Singapore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Singapore.png; path = flags/Singapore.png; sourceTree = "<group>"; };
 		BED8364A1AEFE7B00065AA37 /* ModelCurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCurrency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,7 +93,6 @@
 		BE31050E1AED536B00C0DFAB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BED836431AEFE4980065AA37 /* flags */,
 				BE3105101AED536B00C0DFAB /* AppDelegate.swift */,
 				BE3105191AED536B00C0DFAB /* LaunchScreen.xib */,
 				BE3105171AED536B00C0DFAB /* Images.xcassets */,
@@ -119,14 +116,6 @@
 				BE3105251AED536B00C0DFAB /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BED836431AEFE4980065AA37 /* flags */ = {
-			isa = PBXGroup;
-			children = (
-				BED836481AEFE5260065AA37 /* Singapore.png */,
-			);
-			name = flags;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +198,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BED836491AEFE5260065AA37 /* Singapore.png in Resources */,
 				BE3105161AED536B00C0DFAB /* Main.storyboard in Resources */,
 				BE31051B1AED536B00C0DFAB /* LaunchScreen.xib in Resources */,
 				BE3105181AED536B00C0DFAB /* Images.xcassets in Resources */,
