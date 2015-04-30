@@ -15,7 +15,7 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var currencyTableViewCellIdentifier = "currencyTableViewCell"
     var currencies: Dictionary<String, Currency> = [:]
-    var myCurrencies = ["SGD", "MYR", "TWD", "AUD"] // list of users currencies
+    var myCurrencies = ["SGD", "MYR", "TWD", "IDR", "AUD"] // list of users currencies
     var currentCurrency: Currency?
     var currentValue = 1.00
     
@@ -31,6 +31,9 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         self.currentCurrency = currencies[myCurrencies[0]]!
+        
+        // remove the cell separator
+        CurrencyTableView.separatorColor = UIColor.blackColor().colorWithAlphaComponent(0.05)
     }
     
     deinit {
@@ -63,11 +66,20 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
         if currencyName != "unknown" {
             cell.UIImageViewFlag!.image = UIImage(named: code)
         }
-
+        
+        let result = String(format:"%.2f", value ?? 0)
+        let stringLength = count(result)
+        
+        let valueIndex = stringLength - 3
+        let decimalIndex = stringLength - 3
+        let valueString = result.substringToIndex(advance(result.startIndex, valueIndex))
+        let decimalString = result.substringFromIndex(advance(result.startIndex, decimalIndex))
+        
         cell.UILabelName!.text = currencyName
         cell.UILabelCode!.text = code
-        cell.UILabelValue!.text = String(format:"%.2f", value ?? 0)   // round to 2 decimal
-
+        cell.UILabelValue!.text = valueString
+        cell.UILabelDecimal!.text = decimalString
+        
         return cell
     }
     
