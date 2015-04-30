@@ -15,7 +15,7 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var currencyTableViewCellIdentifier = "currencyTableViewCell"
     var currencies: Dictionary<String, Currency> = [:]
-    var myCurrencies = ["SGD", "MYR", "TWD", "IDR", "AUD"] // list of users currencies
+    var myCurrencies = ["AED", "SGD", "MYR", "TWD", "IDR", "AUD"] // list of users currencies
     var currentCurrency: Currency?
     var currentValue = 1.00
     var refreshControl:UIRefreshControl!
