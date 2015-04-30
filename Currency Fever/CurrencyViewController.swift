@@ -8,34 +8,33 @@
 
 import UIKit
 
-
-class CurrencyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CurrencyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CurrencyDelegate {
 
     // MARK: Variables
     @IBOutlet weak var CurrencyTableView: UITableView!
     
     var currencyTableViewCellIdentifier = "currencyTableViewCell"
     var currencies: Dictionary<String, Currency> = [:]
-    var myCurrencies = ["SGD", "MYR", "USD", "TWD", "IDR", "AUD"] // list of users currencies
-    var currenCurrency: Currency?
-    var currenValue = 1.00
+    var myCurrencies = ["SGD", "MYR"] // list of users currencies
+    var currentCurrency: Currency?
+    var currentValue = 1.00
     
+    // MARK: UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        // Set the UITableView delegate
-        CurrencyTableView.delegate = self
-        CurrencyTableView.dataSource = self
-        
+
         // Pull all the currencies
         for c in myCurrencies {
-            currencies[c] = Currency(c);
+            currencies[c] = Currency(c)
+            currencies[c]?.delegate = self
+            currencies[c]?.getRate(c)
         }
         
-        self.currenCurrency = currencies[myCurrencies[0]]!
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateRates", name: "newRates", object: nil)
+        self.currentCurrency = currencies[myCurrencies[0]]!
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     // MARK: UITableViewDataSource
@@ -48,11 +47,12 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier(self.currencyTableViewCellIdentifier, forIndexPath: indexPath) as! CurrencyTableViewCell
         
         let currency = myCurrencies[indexPath.row]
         let myCurrency = currencies[currency]
+        
+        // println(myCurrency)
         
         let currencyName = myCurrency!.currencyName
         let code = myCurrency!.code
@@ -71,17 +71,27 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
-    func updateRates() {
-        updateCurrentCurrency(nil)
-        
-        println(currenCurrency!)
-        
-        CurrencyTableView.reloadData()
+    // MARK: CurrencyDelegate methods
+    func loadingWillStart() {
+        // Loading start
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
     
+    func loadingDidEnd() {
+        // Loading stop
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    }
+    
+    func dataUpdated() {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.CurrencyTableView.reloadData()
+        })
+    }
+    
+    // MARK: Local methods
     func updateCurrentCurrency(selectedCode: String?) -> Double {
         // Get the rate against the current selected currency
-        let rates = currenCurrency!.rates
+        let rates = currentCurrency!.rates
         var code: String
         
         if selectedCode == nil {
@@ -91,10 +101,10 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         if let rate = rates[code] {
-            return currenValue * rates[code]!
+            return currentValue * rates[code]!
         }
         
-        return 1.00
+        return 0.00
     }
 
 //    override func didReceiveMemoryWarning() {

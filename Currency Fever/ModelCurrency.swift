@@ -8,12 +8,20 @@
 
 import Foundation
 
-class Currency {
+protocol CurrencyDelegate {
+    func loadingWillStart()
+    func loadingDidEnd()
+    func dataUpdated()
+}
+
+class Currency: Printable {
     let APIKey = "jr-38e855266eb396bc3bb2e62bc33a548c"
     let code: String
     let currencyName: String
     var rates = [String: Double]()
- 
+    
+    var delegate: CurrencyDelegate?
+    
     // dictionary of countries supported
     let countries = [
         "AED": "Arab Emirates Dirham",
@@ -186,13 +194,14 @@ class Currency {
         "ZWL": "Zimbabwe Dollar"
     ]
     
-    // designated init using country code
+    var description: String {
+        return currencyName + " : " + code + " : " + "\(rates)"
+    }
     
+    // designated init using country code
     init(_ code: String) {
         self.code = code
         self.currencyName = countries[code] ?? "Unknown"
-        
-        self.getRate(code)
     }
     
     func getRate(code: String) -> [String: Double]? {
@@ -202,6 +211,8 @@ class Currency {
         
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
+
+        self.delegate?.loadingWillStart()
         
         NSURLConnection.sendAsynchronousRequest(request,
             queue: NSOperationQueue(),
@@ -218,15 +229,14 @@ class Currency {
                            self.rates[code] = (rates[code]! as NSString).doubleValue
                         }
                     }
-                    
-                    NSNotificationCenter.defaultCenter().postNotificationName("newRates", object: nil)
                 } else {
                     // couldn't load JSON, look at error
                     println(error)
-                    self.rates = [code: 1.00000000]
-                    
-                    NSNotificationCenter.defaultCenter().postNotificationName("newRates", object: nil)
+                    self.rates = [code: 0.00000000]
                 }
+       
+                self.delegate?.loadingDidEnd()
+                self.delegate?.dataUpdated()
             }
         )
         

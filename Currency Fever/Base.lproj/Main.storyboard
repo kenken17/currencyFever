@@ -133,6 +133,10 @@
                                         <exclude reference="V1a-2m-33t"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="jbb-PI-0QD"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="vEq-4n-LvO"/>
+                                </connections>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0Y-xf-2nl">
                                 <rect key="frame" x="0.0" y="354" width="600" height="246"/>
