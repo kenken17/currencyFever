@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE016E791AF22D52002EF52B /* SGD.png in Resources */ = {isa = PBXBuildFile; fileRef = BE016E781AF22D52002EF52B /* SGD.png */; };
+		BE016E7B1AF230D4002EF52B /* TWD.png in Resources */ = {isa = PBXBuildFile; fileRef = BE016E7A1AF230D4002EF52B /* TWD.png */; };
+		BE016E801AF23424002EF52B /* AUD.png in Resources */ = {isa = PBXBuildFile; fileRef = BE016E7C1AF23424002EF52B /* AUD.png */; };
+		BE016E811AF23424002EF52B /* MYR.png in Resources */ = {isa = PBXBuildFile; fileRef = BE016E7D1AF23424002EF52B /* MYR.png */; };
+		BE016E8C1AF2381F002EF52B /* Dense-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE016E8B1AF2381F002EF52B /* Dense-Regular.otf */; };
 		BE3105111AED536B00C0DFAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3105101AED536B00C0DFAB /* AppDelegate.swift */; };
 		BE3105131AED536B00C0DFAB /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3105121AED536B00C0DFAB /* CurrencyViewController.swift */; };
 		BE3105161AED536B00C0DFAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE3105141AED536B00C0DFAB /* Main.storyboard */; };
@@ -28,6 +33,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE016E781AF22D52002EF52B /* SGD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SGD.png; path = flags/SGD.png; sourceTree = "<group>"; };
+		BE016E7A1AF230D4002EF52B /* TWD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TWD.png; path = flags/TWD.png; sourceTree = "<group>"; };
+		BE016E7C1AF23424002EF52B /* AUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AUD.png; path = flags/AUD.png; sourceTree = "<group>"; };
+		BE016E7D1AF23424002EF52B /* MYR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MYR.png; path = flags/MYR.png; sourceTree = "<group>"; };
+		BE016E8B1AF2381F002EF52B /* Dense-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dense-Regular.otf"; path = "fonts/Dense-Regular.otf"; sourceTree = "<group>"; };
 		BE31050B1AED536B00C0DFAB /* Currency Fever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency Fever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE31050F1AED536B00C0DFAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE3105101AED536B00C0DFAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +70,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE016E771AF22D45002EF52B /* flags */ = {
+			isa = PBXGroup;
+			children = (
+				BE016E7C1AF23424002EF52B /* AUD.png */,
+				BE016E7D1AF23424002EF52B /* MYR.png */,
+				BE016E7A1AF230D4002EF52B /* TWD.png */,
+				BE016E781AF22D52002EF52B /* SGD.png */,
+			);
+			name = flags;
+			sourceTree = "<group>";
+		};
+		BE016E841AF23504002EF52B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BE016E8B1AF2381F002EF52B /* Dense-Regular.otf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
 		BE3105021AED536B00C0DFAB = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +122,8 @@
 		BE31050E1AED536B00C0DFAB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE016E841AF23504002EF52B /* fonts */,
+				BE016E771AF22D45002EF52B /* flags */,
 				BE3105101AED536B00C0DFAB /* AppDelegate.swift */,
 				BE3105191AED536B00C0DFAB /* LaunchScreen.xib */,
 				BE3105171AED536B00C0DFAB /* Images.xcassets */,
@@ -198,9 +229,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE016E801AF23424002EF52B /* AUD.png in Resources */,
+				BE016E791AF22D52002EF52B /* SGD.png in Resources */,
 				BE3105161AED536B00C0DFAB /* Main.storyboard in Resources */,
 				BE31051B1AED536B00C0DFAB /* LaunchScreen.xib in Resources */,
+				BE016E7B1AF230D4002EF52B /* TWD.png in Resources */,
 				BE3105181AED536B00C0DFAB /* Images.xcassets in Resources */,
+				BE016E8C1AF2381F002EF52B /* Dense-Regular.otf in Resources */,
+				BE016E811AF23424002EF52B /* MYR.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

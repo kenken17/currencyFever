@@ -15,7 +15,7 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var currencyTableViewCellIdentifier = "currencyTableViewCell"
     var currencies: Dictionary<String, Currency> = [:]
-    var myCurrencies = ["SGD", "MYR"] // list of users currencies
+    var myCurrencies = ["SGD", "MYR", "TWD", "AUD"] // list of users currencies
     var currentCurrency: Currency?
     var currentValue = 1.00
     
@@ -61,7 +61,7 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
 
         // setup the properties
         if currencyName != "unknown" {
-            cell.UIImageViewFlag!.image = UIImage(named: currencyName)
+            cell.UIImageViewFlag!.image = UIImage(named: code)
         }
 
         cell.UILabelName!.text = currencyName
