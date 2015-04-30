@@ -18,22 +18,25 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
     var myCurrencies = ["SGD", "MYR", "TWD", "IDR", "AUD"] // list of users currencies
     var currentCurrency: Currency?
     var currentValue = 1.00
-    
+    var refreshControl:UIRefreshControl!
+    var updatedAt = ""
+
     // MARK: UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Pull all the currencies
-        for c in myCurrencies {
-            currencies[c] = Currency(c)
-            currencies[c]?.delegate = self
-            currencies[c]?.getRate(c)
-        }
+        // go and fetch the latest rates for all currencies in list
+        getLatestRates()
         
         self.currentCurrency = currencies[myCurrencies[0]]!
         
         // remove the cell separator
         CurrencyTableView.separatorColor = UIColor.blackColor().colorWithAlphaComponent(0.05)
+        
+        // refresh control
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        CurrencyTableView.addSubview(refreshControl)
     }
     
     deinit {
@@ -84,23 +87,60 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     // MARK: CurrencyDelegate methods
-    func loadingWillStart() {
+    func loadingWillStart(sender: Currency) {
         // Loading start
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
     
-    func loadingDidEnd() {
+    func loadingDidEnd(sender: Currency) {
         // Loading stop
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        
+        var dateString = ""
+        
+        // Format the date for human
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
+        
+        // first convert from string to date
+        let dateObj = dateFormatter.dateFromString(sender.updatedAt as String)
+        
+        if let date = dateObj {
+            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            dateFormatter.timeStyle = .ShortStyle
+            
+            dateString = dateFormatter.stringFromDate(date)
+        }
+        
+        println(dateString)
+        
+        // update the refresh control text
+        refreshControl.attributedTitle = NSAttributedString(string: "Updated at " + dateString)
     }
     
     func dataUpdated() {
         dispatch_async(dispatch_get_main_queue(), {
             self.CurrencyTableView.reloadData()
+            self.refreshControl.endRefreshing()
         })
     }
     
+    // MARK: Refresh control
+    func refresh(sender:AnyObject) {
+        getLatestRates()
+    }
+    
     // MARK: Local methods
+    func getLatestRates() {
+        // Pull all the currencies
+        for c in myCurrencies {
+            currencies[c] = Currency(c)
+            currencies[c]?.delegate = self
+            currencies[c]?.getRate(c)
+        }
+    }
+    
     func updateCurrentCurrency(selectedCode: String?) -> Double {
         // Get the rate against the current selected currency
         let rates = currentCurrency!.rates

@@ -9,8 +9,8 @@
 import Foundation
 
 protocol CurrencyDelegate {
-    func loadingWillStart()
-    func loadingDidEnd()
+    func loadingWillStart(Currency)
+    func loadingDidEnd(Currency)
     func dataUpdated()
 }
 
@@ -19,7 +19,7 @@ class Currency: Printable {
     let code: String
     let currencyName: String
     var rates = [String: Double]()
-    
+    var updatedAt = ""
     var delegate: CurrencyDelegate?
     
     // dictionary of countries supported
@@ -195,7 +195,7 @@ class Currency: Printable {
     ]
     
     var description: String {
-        return currencyName + " : " + code + " : " + "\(rates)"
+        return currencyName + " : " + code + " : " + updatedAt //+ " : " + "\(rates)"
     }
     
     // designated init using country code
@@ -212,7 +212,7 @@ class Currency: Printable {
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
 
-        self.delegate?.loadingWillStart()
+        self.delegate?.loadingWillStart(self)
         
         NSURLConnection.sendAsynchronousRequest(request,
             queue: NSOperationQueue(),
@@ -229,13 +229,16 @@ class Currency: Printable {
                            self.rates[code] = (rates[code]! as NSString).doubleValue
                         }
                     }
+                    
+                    // ste the last update time
+                    self.updatedAt = jsonResult["utctime"] as? String ?? ""
                 } else {
                     // couldn't load JSON, look at error
                     println(error)
                     self.rates = [code: 0.00000000]
                 }
        
-                self.delegate?.loadingDidEnd()
+                self.delegate?.loadingDidEnd(self)
                 self.delegate?.dataUpdated()
             }
         )

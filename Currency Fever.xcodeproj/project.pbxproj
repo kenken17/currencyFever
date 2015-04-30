@@ -15,6 +15,7 @@
 		BE016E9A1AF2580B002EF52B /* Dense-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE016E991AF2580B002EF52B /* Dense-Regular.otf */; };
 		BE016E9C1AF25B2A002EF52B /* IDR.png in Resources */ = {isa = PBXBuildFile; fileRef = BE016E9B1AF25B2A002EF52B /* IDR.png */; };
 		BE016E9E1AF268AF002EF52B /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE016E9D1AF268AF002EF52B /* CalculatorViewController.swift */; };
+		BE016EA01AF27084002EF52B /* ModelCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE016E9F1AF27084002EF52B /* ModelCalculator.swift */; };
 		BE3105111AED536B00C0DFAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3105101AED536B00C0DFAB /* AppDelegate.swift */; };
 		BE3105131AED536B00C0DFAB /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3105121AED536B00C0DFAB /* CurrencyViewController.swift */; };
 		BE3105161AED536B00C0DFAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE3105141AED536B00C0DFAB /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		BE016E991AF2580B002EF52B /* Dense-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dense-Regular.otf"; path = "fonts/Dense-Regular.otf"; sourceTree = "<group>"; };
 		BE016E9B1AF25B2A002EF52B /* IDR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IDR.png; path = flags/IDR.png; sourceTree = "<group>"; };
 		BE016E9D1AF268AF002EF52B /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		BE016E9F1AF27084002EF52B /* ModelCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCalculator.swift; sourceTree = "<group>"; };
 		BE31050B1AED536B00C0DFAB /* Currency Fever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency Fever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE31050F1AED536B00C0DFAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE3105101AED536B00C0DFAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				BE016E9D1AF268AF002EF52B /* CalculatorViewController.swift */,
 				BED8363F1AEFE43F0065AA37 /* CurrencyTableViewCell.swift */,
 				BED8364A1AEFE7B00065AA37 /* ModelCurrency.swift */,
+				BE016E9F1AF27084002EF52B /* ModelCalculator.swift */,
 				BE31050E1AED536B00C0DFAB /* Supporting Files */,
 			);
 			path = "Currency Fever";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE016E9E1AF268AF002EF52B /* CalculatorViewController.swift in Sources */,
+				BE016EA01AF27084002EF52B /* ModelCalculator.swift in Sources */,
 				BE3105131AED536B00C0DFAB /* CurrencyViewController.swift in Sources */,
 				BED836401AEFE43F0065AA37 /* CurrencyTableViewCell.swift in Sources */,
 				BED8364B1AEFE7B00065AA37 /* ModelCurrency.swift in Sources */,
