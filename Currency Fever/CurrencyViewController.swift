@@ -58,8 +58,6 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
         let currency = myCurrencies[indexPath.row]
         let myCurrency = currencies[currency]
         
-        // println(myCurrency)
-        
         let currencyName = myCurrency!.currencyName
         let code = myCurrency!.code
         
@@ -112,8 +110,6 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
             
             dateString = dateFormatter.stringFromDate(date)
         }
-        
-        println(dateString)
         
         // update the refresh control text
         refreshControl.attributedTitle = NSAttributedString(string: "Updated at " + dateString)
