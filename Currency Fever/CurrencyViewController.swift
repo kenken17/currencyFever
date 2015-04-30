@@ -16,8 +16,9 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var currencyTableViewCellIdentifier = "currencyTableViewCell"
     var currencies: Dictionary<String, Currency> = [:]
-    var myCurrencies = ["SGD", "MYR"] // list of users currencies
-    var currenValue: Double = 0
+    var myCurrencies = ["SGD", "MYR", "USD", "TWD", "IDR", "AUD"] // list of users currencies
+    var currenCurrency: Currency?
+    var currenValue = 1.00
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,8 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
         for c in myCurrencies {
             currencies[c] = Currency(c);
         }
+        
+        self.currenCurrency = currencies[myCurrencies[0]]!
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateRates", name: "newRates", object: nil)
     }
@@ -53,9 +56,9 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let currencyName = myCurrency!.currencyName
         let code = myCurrency!.code
-        let rates = myCurrency!.rates
-        let value = rates[code]
-    
+        
+        var value = updateCurrentCurrency(code)
+
         // setup the properties
         if currencyName != "unknown" {
             cell.UIImageViewFlag!.image = UIImage(named: currencyName)
@@ -69,10 +72,29 @@ class CurrencyViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func updateRates() {
-        println(currencies["SGD"])
+        updateCurrentCurrency(nil)
         
+        println(currenCurrency!)
         
         CurrencyTableView.reloadData()
+    }
+    
+    func updateCurrentCurrency(selectedCode: String?) -> Double {
+        // Get the rate against the current selected currency
+        let rates = currenCurrency!.rates
+        var code: String
+        
+        if selectedCode == nil {
+            code = myCurrencies[0]
+        } else {
+           code = selectedCode!
+        }
+        
+        if let rate = rates[code] {
+            return currenValue * rates[code]!
+        }
+        
+        return 1.00
     }
 
 //    override func didReceiveMemoryWarning() {

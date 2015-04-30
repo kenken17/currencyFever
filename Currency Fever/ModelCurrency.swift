@@ -213,8 +213,11 @@ class Currency {
                 let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
                 
                 if (jsonResult != nil) {
-                    //println(jsonResult);
-                    self.rates = ["SGD": 1.00000000]
+                    if let rates = jsonResult["rates"] as? [String: String] {
+                        for (code, _) in self.countries {
+                           self.rates[code] = (rates[code]! as NSString).doubleValue
+                        }
+                    }
                     
                     NSNotificationCenter.defaultCenter().postNotificationName("newRates", object: nil)
                 } else {
